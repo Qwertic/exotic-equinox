@@ -1,28 +1,54 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+---
+import "../styles/global.css";
 
-    <h1>My Astro Site</h1>
-    <h1>About Me</h1>
-    <h2>... and my new Astro site!</h2>
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
+const pageTitle = "About Me";
 
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
-  </body>
-</html>
+const identity = {
+  firstName: "Qwertic",
+  country: "Italy",
+  occupation: "Full Stack Developer",
+  hobbies: ["playing music", "camping", "meditation", "traveling", "coding"],
+};
+
+const skills = [
+  "Ruby on Rails",
+  "Next.js",
+  "React",
+  "Astro",
+  "Writing Docs",
+  "Tailwind CSS",
+  "PostgreSQL",
+  "Git",
+  "Docker",
+  "AWS",
+  "GitHub Actions",
+  "GEN-AI",
+  "Python",
+  "JavaScript",
+  "CI/CD",
+];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... and my new Astro site!</h2>
+
+  <p>
+    I'm {identity.firstName} from {identity.country}. I'm a {
+      identity.occupation
+    } and I love {identity.hobbies.join(", ")}.
+  </p>
+
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
